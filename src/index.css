@@ -2,95 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Wilderness Reserve Design System
+   Luxury rural estate - Natural elegance, British countryside refinement
+   Colors: Forest greens, warm creams, terracotta earth tones
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core palette - Natural luxury */
+    --background: 40 30% 97%;
+    --foreground: 150 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 25% 95%;
+    --card-foreground: 150 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 150 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep forest green */
+    --primary: 150 35% 22%;
+    --primary-foreground: 40 30% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Warm ivory cream */
+    --secondary: 38 40% 92%;
+    --secondary-foreground: 150 25% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted - Soft sage */
+    --muted: 120 15% 90%;
+    --muted-foreground: 150 15% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Terracotta earth */
+    --accent: 18 55% 50%;
+    --accent-foreground: 40 30% 97%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 38 25% 85%;
+    --input: 38 25% 85%;
+    --ring: 150 35% 22%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Custom tokens for Wilderness */
+    --wilderness-forest: 150 35% 22%;
+    --wilderness-sage: 145 25% 35%;
+    --wilderness-cream: 40 30% 97%;
+    --wilderness-ivory: 38 40% 92%;
+    --wilderness-terracotta: 18 55% 50%;
+    --wilderness-earth: 25 30% 35%;
+    --wilderness-gold: 42 65% 55%;
+    --wilderness-mist: 180 15% 92%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsl(150 35% 22% / 0.7) 0%, hsl(150 35% 22% / 0.3) 100%);
+    --gradient-nature: linear-gradient(135deg, hsl(150 35% 22%) 0%, hsl(145 25% 35%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(40 30% 97%) 0%, hsl(38 40% 92%) 100%);
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(150 35% 22% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(150 35% 22% / 0.12);
+    --shadow-elevated: 0 20px 50px -15px hsl(150 35% 22% / 0.15);
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    /* Typography */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Raleway', system-ui, sans-serif;
 
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (keeping for compatibility) */
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 150 25% 15%;
+    --sidebar-primary: 150 35% 22%;
+    --sidebar-primary-foreground: 40 30% 97%;
+    --sidebar-accent: 38 40% 92%;
+    --sidebar-accent-foreground: 150 25% 15%;
+    --sidebar-border: 38 25% 85%;
+    --sidebar-ring: 150 35% 22%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 150 25% 8%;
+    --foreground: 40 30% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 150 25% 12%;
+    --card-foreground: 40 30% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 150 25% 8%;
+    --popover-foreground: 40 30% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 145 30% 60%;
+    --primary-foreground: 150 25% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 150 20% 18%;
+    --secondary-foreground: 40 30% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 150 20% 18%;
+    --muted-foreground: 145 15% 60%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 18 45% 55%;
+    --accent-foreground: 40 30% 97%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 150 20% 20%;
+    --input: 150 20% 20%;
+    --ring: 145 30% 60%;
+
+    --sidebar-background: 150 25% 8%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 145 30% 60%;
+    --sidebar-primary-foreground: 150 25% 8%;
+    --sidebar-accent: 150 20% 18%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 150 20% 20%;
+    --sidebar-ring: 145 30% 60%;
   }
 }
 
@@ -99,7 +124,156 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
   }
 }
+
+@layer components {
+  /* Hero gradient overlay */
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+
+  /* Luxury button styles */
+  .btn-luxury {
+    @apply relative overflow-hidden transition-all duration-500 ease-out;
+  }
+
+  .btn-luxury::before {
+    content: '';
+    @apply absolute inset-0 bg-accent/20 translate-y-full transition-transform duration-500 ease-out;
+  }
+
+  .btn-luxury:hover::before {
+    @apply translate-y-0;
+  }
+
+  /* Elegant underline animation */
+  .link-underline {
+    @apply relative inline-block;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-px bg-current transform scale-x-0 origin-right transition-transform duration-300 ease-out;
+  }
+
+  .link-underline:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply shadow-elevated -translate-y-1;
+  }
+
+  /* Image reveal animation */
+  .img-reveal {
+    @apply overflow-hidden;
+  }
+
+  .img-reveal img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .img-reveal:hover img {
+    @apply scale-105;
+  }
+
+  /* Section fade in */
+  .section-fade {
+    @apply opacity-0 translate-y-8;
+    animation: sectionFadeIn 0.8s ease-out forwards;
+  }
+
+  /* Parallax container */
+  .parallax-container {
+    @apply relative overflow-hidden;
+  }
+
+  .parallax-bg {
+    @apply absolute inset-0 w-full h-[120%] -top-[10%] bg-cover bg-center bg-no-repeat;
+    will-change: transform;
+  }
+}
+
+@layer utilities {
+  /* Text shadow for hero text */
+  .text-shadow-hero {
+    text-shadow: 0 2px 20px hsl(150 35% 22% / 0.3);
+  }
+
+  /* Backdrop blur */
+  .backdrop-nature {
+    @apply backdrop-blur-sm bg-background/80;
+  }
+
+  /* Letter spacing variations */
+  .tracking-luxury {
+    letter-spacing: 0.15em;
+  }
+
+  .tracking-refined {
+    letter-spacing: 0.05em;
+  }
+}
+
+/* Keyframe animations */
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Scroll-triggered animations via intersection observer */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-delay-100 { transition-delay: 0.1s; }
+.animate-delay-200 { transition-delay: 0.2s; }
+.animate-delay-300 { transition-delay: 0.3s; }
+.animate-delay-400 { transition-delay: 0.4s; }
