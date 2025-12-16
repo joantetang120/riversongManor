@@ -36,6 +36,7 @@ export const HeroSection = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           willChange: "transform",
+          filter: "blur(3px)",
         }}
       />
 
