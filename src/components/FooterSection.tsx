@@ -28,7 +28,7 @@ export const FooterSection = () => {
               <img 
                 src={logoRiversong} 
                 alt="Riversong Manor" 
-                className="h-16 w-auto brightness-0 invert"
+                className="h-16 w-auto"
               />
             </div>
             <p className="font-body text-primary-foreground/70 leading-relaxed mb-6 max-w-md">
