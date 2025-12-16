@@ -38,12 +38,12 @@ const Index = () => {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
-    name: "Wilderness Reserve",
+    name: "Riversong Manor",
     description:
       "A private 8,000-acre estate in Suffolk offering luxury accommodations, immersive nature experiences, and world-class hospitality.",
-    url: "https://wildernessreserve.com",
+    url: "https://riversongmanor.com",
     telephone: "+44 (0) 1234 567 890",
-    email: "reservations@wildernessreserve.com",
+    email: "reservations@riversongmanor.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sibton Park, Yoxford",
@@ -51,7 +51,7 @@ const Index = () => {
       postalCode: "IP17 3LX",
       addressCountry: "GB",
     },
-    image: "https://wildernessreserve.com/hero-estate.jpg",
+    image: "https://riversongmanor.com/hero-estate.jpg",
     priceRange: "££££",
     starRating: {
       "@type": "Rating",

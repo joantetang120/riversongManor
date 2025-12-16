@@ -37,7 +37,7 @@ export const AboutSection = () => {
           </h2>
           <div className="w-16 h-px bg-accent mx-auto mb-8" />
           <p className="font-body text-muted-foreground text-lg leading-relaxed">
-            Wilderness Reserve est un domaine privé unique en Angleterre, conçu
+            Riversong Manor est un domaine privé unique en Angleterre, conçu
             pour permettre à chacun de reconnecter avec la nature, le luxe et
             l'histoire. Situé dans la campagne de Suffolk, c'est une collection
             de maisons historiques, de cottages pittoresques et d'hébergements
@@ -72,7 +72,7 @@ export const AboutSection = () => {
             "Where wilderness meets refined elegance"
           </blockquote>
           <p className="mt-4 text-muted-foreground font-body text-sm tracking-luxury uppercase">
-            — The Philosophy of Wilderness Reserve
+            — The Philosophy of Riversong Manor
           </p>
         </div>
       </div>

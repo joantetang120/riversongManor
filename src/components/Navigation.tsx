@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoRiversong from "@/assets/logo-riversong.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -35,27 +36,13 @@ export const Navigation = () => {
       <nav className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="relative">
-            <span
-              className={`font-display text-2xl md:text-3xl font-semibold tracking-refined transition-colors duration-300 ${
-                isScrolled ? "text-primary" : "text-primary-foreground"
-              }`}
-            >
-              W
-            </span>
-            <span
-              className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-all duration-300 group-hover:w-full ${
-                isScrolled ? "bg-accent" : "bg-primary-foreground/60"
-              }`}
-            />
-          </div>
-          <span
-            className={`font-display text-lg md:text-xl font-medium tracking-luxury uppercase transition-colors duration-300 ${
-              isScrolled ? "text-primary" : "text-primary-foreground"
+          <img 
+            src={logoRiversong} 
+            alt="Riversong Manor" 
+            className={`h-10 md:h-12 w-auto transition-all duration-300 ${
+              isScrolled ? "" : "brightness-0 invert"
             }`}
-          >
-            ilderness Reserve
-          </span>
+          />
         </a>
 
         {/* Desktop Navigation */}
