@@ -39,9 +39,7 @@ export const Navigation = () => {
           <img 
             src={logoRiversong} 
             alt="Riversong Manor" 
-            className={`h-10 md:h-12 w-auto transition-all duration-300 ${
-              isScrolled ? "" : "brightness-0 invert"
-            }`}
+            className="h-10 md:h-12 w-auto"
           />
         </a>
 
