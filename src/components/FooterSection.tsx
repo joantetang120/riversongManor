@@ -1,22 +1,25 @@
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/contexts/LanguageContext";
 import logoRiversong from "@/assets/logo-riversong.png";
 
-const quickLinks = [
-  { label: "FAQ", href: "#" },
-  { label: "Terms & Conditions", href: "#" },
-  { label: "Privacy Policy", href: "#" },
-  { label: "Careers", href: "#" },
-  { label: "Request Brochure", href: "#" },
-];
-
-const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-];
-
 export const FooterSection = () => {
+  const { t, getText } = useTranslation();
+
+  const quickLinks = [
+    { label: getText(t.footer.links.faq), href: "#" },
+    { label: getText(t.footer.links.terms), href: "#" },
+    { label: getText(t.footer.links.privacy), href: "#" },
+    { label: getText(t.footer.links.careers), href: "#" },
+    { label: getText(t.footer.links.brochure), href: "#" },
+  ];
+
+  const socialLinks = [
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+  ];
+
   return (
     <footer id="contact" className="bg-primary text-primary-foreground">
       {/* Main Footer */}
@@ -25,52 +28,53 @@ export const FooterSection = () => {
           {/* Brand & Description */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <img 
-                src={logoRiversong} 
-                alt="Riversong Manor" 
+              <img
+                src={logoRiversong}
+                alt="Riversong Manor"
                 className="h-16 w-auto"
               />
             </div>
             <p className="font-body text-primary-foreground/70 leading-relaxed mb-6 max-w-md">
-              A private 8,000-acre estate in Suffolk, England. Experience the
-              perfect blend of luxury, nature, and British heritage.
+              {getText(t.footer.description)}
             </p>
             <Button
               variant="outline"
               className="border-primary-foreground/30 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 tracking-luxury uppercase text-xs"
             >
-              Download Brochure
+              {getText(t.footer.downloadBrochure)}
             </Button>
           </div>
 
           {/* Contact Information */}
           <div>
-            <h3 className="font-display text-lg font-medium mb-6">Contact</h3>
+            <h3 className="font-display text-lg font-medium mb-6">
+              {getText(t.footer.contact)}
+            </h3>
             <div className="space-y-4">
               <a
-                href="tel:+441234567890"
+                href="tel:+33123456789"
                 className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300 group"
               >
                 <Phone className="w-4 h-4 group-hover:text-accent transition-colors duration-300" />
-                <span className="font-body text-sm">+44 (0) 1234 567 890</span>
+                <span className="font-body text-sm">+237 697 32 92 92</span>
               </a>
               <a
-                href="mailto:reservations@riversongmanor.com"
+                href="mailto:riversongmanor@gmail.com"
                 className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300 group"
               >
                 <Mail className="w-4 h-4 group-hover:text-accent transition-colors duration-300" />
                 <span className="font-body text-sm">
-                  reservations@riversongmanor.com
+                  riversongmanor@gmail.com
                 </span>
               </a>
               <div className="flex items-start gap-3 text-primary-foreground/70">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span className="font-body text-sm">
-                  Sibton Park, Yoxford
+                  Nkongsamba
                   <br />
-                  Suffolk IP17 3LX
+                  Cameroon
                   <br />
-                  United Kingdom
+                  Chez EHEM
                 </span>
               </div>
             </div>
@@ -79,7 +83,7 @@ export const FooterSection = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-display text-lg font-medium mb-6">
-              Quick Links
+              {getText(t.footer.quickLinks)}
             </h3>
             <div className="space-y-3">
               {quickLinks.map((link) => (
@@ -101,8 +105,7 @@ export const FooterSection = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-body text-xs text-primary-foreground/50">
-              © {new Date().getFullYear()} Riversong Manor. All rights
-              reserved.
+              © {new Date().getFullYear()} Riversong Manor. {getText(t.footer.copyright)}
             </p>
 
             {/* Social Links */}

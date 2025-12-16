@@ -2,9 +2,14 @@ import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BookingDialog } from "@/components/BookingDialog";
-import heroImage from "@/assets/hero-estate.jpg";
+import { useTranslation } from "@/contexts/LanguageContext";
+// import heroImage from "@/assets/hero-estate.jpg";
+import heroImage from "@/assets/beautiful-pavement-houses-surrounded-by-grassy-fields-captured-gambia-africa-min.jpg";
+
+
 export const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const { t, getText } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +50,7 @@ export const HeroSection = () => {
             className="text-primary-foreground/80 font-body text-sm md:text-base tracking-luxury uppercase mb-6 animate-fade-in"
             style={{ animationDelay: "0.2s" }}
           >
-            Suffolk, England
+            {getText(t.hero.tagline)}
           </p>
 
           {/* Main Title */}
@@ -61,7 +66,7 @@ export const HeroSection = () => {
             className="font-display text-xl sm:text-2xl md:text-3xl text-primary-foreground/90 italic font-light mb-4 animate-fade-in"
             style={{ animationDelay: "0.6s" }}
           >
-            The UK's Most Luxurious Country Estate
+            {getText(t.hero.subtitle)}
           </p>
 
           {/* Description */}
@@ -69,8 +74,7 @@ export const HeroSection = () => {
             className="font-body text-primary-foreground/80 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in"
             style={{ animationDelay: "0.8s" }}
           >
-            Un domaine privé de plus de 8 000 acres de nature, d'histoires et
-            d'expériences exceptionnelles.
+            {getText(t.hero.description)}
           </p>
 
           {/* CTA Buttons */}
@@ -82,7 +86,7 @@ export const HeroSection = () => {
               size="lg"
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 tracking-luxury uppercase px-8 py-6 text-sm font-medium transition-all duration-300 hover:scale-105"
             >
-              Discover the Estate
+              {getText(t.hero.cta)}
             </Button>
             <BookingDialog />
           </div>
@@ -98,7 +102,7 @@ export const HeroSection = () => {
             className="flex flex-col items-center gap-2 text-primary-foreground/60 hover:text-primary-foreground transition-colors duration-300 group"
           >
             <span className="text-xs tracking-luxury uppercase font-body">
-              Explore
+              {getText(t.hero.explore)}
             </span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>

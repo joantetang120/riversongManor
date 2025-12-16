@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import { fr } from "date-fns/locale";
+import { fr, enUS, de } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
+import { useTranslation } from "@/contexts/LanguageContext";
 import {
   Dialog,
   DialogContent,
@@ -22,10 +23,19 @@ interface BookingDialogProps {
   trigger?: React.ReactNode;
 }
 
+const localeMap = {
+  fr: fr,
+  en: enUS,
+  de: de,
+};
+
 export const BookingDialog = ({ trigger }: BookingDialogProps) => {
   const [checkIn, setCheckIn] = useState<Date>();
   const [checkOut, setCheckOut] = useState<Date>();
   const [guests, setGuests] = useState(2);
+  const { t, getText, language } = useTranslation();
+
+  const currentLocale = localeMap[language];
 
   return (
     <Dialog>
@@ -36,21 +46,23 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
             variant="outline"
             className="border-primary-foreground/50 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 tracking-luxury uppercase px-8 py-6 text-sm font-medium transition-all duration-300"
           >
-            Book Your Stay
+            {getText(t.booking.buttonText)}
           </Button>
         )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px] bg-background border-border">
         <DialogHeader>
           <DialogTitle className="font-display text-2xl text-foreground">
-            Book Blyth Manor
+            {getText(t.booking.title)}
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6 py-4">
           {/* Check-in Date */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Check-in</label>
+            <label className="text-sm font-medium text-foreground">
+              {getText(t.booking.checkIn)}
+            </label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -61,7 +73,7 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkIn ? format(checkIn, "PPP", { locale: fr }) : "Sélectionner une date"}
+                  {checkIn ? format(checkIn, "PPP", { locale: currentLocale }) : getText(t.booking.selectDate)}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -79,7 +91,9 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
 
           {/* Check-out Date */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Check-out</label>
+            <label className="text-sm font-medium text-foreground">
+              {getText(t.booking.checkOut)}
+            </label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -90,7 +104,7 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {checkOut ? format(checkOut, "PPP", { locale: fr }) : "Sélectionner une date"}
+                  {checkOut ? format(checkOut, "PPP", { locale: currentLocale }) : getText(t.booking.selectDate)}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
@@ -108,7 +122,9 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
 
           {/* Guests */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-foreground">Nombre d'invités</label>
+            <label className="text-sm font-medium text-foreground">
+              {getText(t.booking.guests)}
+            </label>
             <div className="flex items-center gap-4">
               <Button
                 variant="outline"
@@ -136,7 +152,7 @@ export const BookingDialog = ({ trigger }: BookingDialogProps) => {
             size="lg"
             disabled={!checkIn || !checkOut}
           >
-            Demander une réservation
+            {getText(t.booking.submit)}
           </Button>
         </div>
       </DialogContent>

@@ -1,31 +1,34 @@
 import { Heart, Users, Utensils, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import weddingImage from "@/assets/wedding.jpg";
-
-const features = [
-  {
-    icon: Heart,
-    title: "Mariages",
-    description: "Célébrez votre amour dans un cadre enchanteur et exclusif",
-  },
-  {
-    icon: Users,
-    title: "Réceptions",
-    description: "Événements d'entreprise et célébrations familiales",
-  },
-  {
-    icon: Utensils,
-    title: "Gastronomie",
-    description: "Cuisine raffinée avec des produits locaux de saison",
-  },
-  {
-    icon: Music,
-    title: "Événements Sur Mesure",
-    description: "Chaque détail pensé selon vos souhaits",
-  },
-];
+import { useTranslation } from "@/contexts/LanguageContext";
+import weddingImage from "@/assets/stylish-trendy-afro-france-couple-posed-together-autumn-day-black-african-models-love-sitting-against-wooden-decoration-with-flowers-pumpkins-min.jpg";
 
 export const EventsSection = () => {
+  const { t, getText } = useTranslation();
+
+  const features = [
+    {
+      icon: Heart,
+      title: getText(t.events.items.weddings.title),
+      description: getText(t.events.items.weddings.description),
+    },
+    {
+      icon: Users,
+      title: getText(t.events.items.family.title),
+      description: getText(t.events.items.family.description),
+    },
+    {
+      icon: Utensils,
+      title: getText(t.events.items.gastronomy.title),
+      description: getText(t.events.items.gastronomy.description),
+    },
+    {
+      icon: Music,
+      title: getText(t.events.items.private.title),
+      description: getText(t.events.items.private.description),
+    },
+  ];
+
   return (
     <section id="events" className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
@@ -35,7 +38,7 @@ export const EventsSection = () => {
             <div className="relative z-10 rounded-sm overflow-hidden shadow-elevated img-reveal">
               <img
                 src={weddingImage}
-                alt="Wedding at Wilderness Reserve"
+                alt="Event in the mountains"
                 className="w-full h-[400px] md:h-[550px] object-cover"
               />
             </div>
@@ -47,23 +50,21 @@ export const EventsSection = () => {
           {/* Content Side */}
           <div>
             <p className="text-accent font-body text-sm tracking-luxury uppercase mb-4">
-              Événements
+              {getText(t.events.tagline)}
             </p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground font-medium mb-6 leading-tight">
-              Weddings & Célébrations
+              {getText(t.events.title)}
             </h2>
             <div className="w-16 h-px bg-accent mb-8" />
             <p className="font-body text-muted-foreground text-lg leading-relaxed mb-10">
-              Wilderness Reserve offre un cadre incomparable pour vos moments
-              les plus précieux. Des mariages intimes aux grandes célébrations,
-              notre équipe dédiée transforme vos rêves en réalité.
+              {getText(t.events.description)}
             </p>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
               {features.map((feature, index) => (
                 <div
-                  key={feature.title}
+                  key={index}
                   className="flex items-start gap-4 animate-on-scroll"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -87,7 +88,7 @@ export const EventsSection = () => {
               size="lg"
               className="tracking-luxury uppercase px-8 bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Planifier votre événement
+              {getText(t.events.cta)}
             </Button>
           </div>
         </div>

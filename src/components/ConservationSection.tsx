@@ -1,28 +1,23 @@
+import { useTranslation } from "@/contexts/LanguageContext";
 import conservationImage from "@/assets/conservation.jpg";
 
-const stats = [
-  { value: "50,000+", label: "Arbres plantés" },
-  { value: "200+", label: "Espèces observées" },
-  { value: "8,000", label: "Acres préservés" },
-  { value: "15+", label: "Années de rewilding" },
-];
-
-const timeline = [
-  { year: "2008", event: "Acquisition du domaine" },
-  { year: "2010", event: "Début du programme de rewilding" },
-  { year: "2015", event: "Première récolte de prairies sauvages" },
-  { year: "2020", event: "50 000 arbres plantés" },
-  { year: "2024", event: "Certification environnementale" },
-];
-
 export const ConservationSection = () => {
+  const { t, getText, language } = useTranslation();
+
+  const stats = [
+    { value: t.conservation.stats.altitude.value, label: getText(t.conservation.stats.altitude.label) },
+    { value: t.conservation.stats.birds.value, label: getText(t.conservation.stats.birds.label) },
+    { value: t.conservation.stats.trails.value, label: getText(t.conservation.stats.trails.label) },
+    { value: t.conservation.stats.years.value, label: getText(t.conservation.stats.years.label) },
+  ];
+
   return (
     <section id="conservation" className="py-24 md:py-32 bg-primary text-primary-foreground relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={conservationImage}
-          alt="Conservation landscape"
+          alt="Mountain landscape"
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/80" />
@@ -33,28 +28,24 @@ export const ConservationSection = () => {
           {/* Content */}
           <div>
             <p className="text-accent font-body text-sm tracking-luxury uppercase mb-4">
-              Conservation
+              {getText(t.conservation.tagline)}
             </p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-primary-foreground font-medium mb-6 leading-tight">
-              Rewilding & Engagement Écologique
+              {getText(t.conservation.title)}
             </h2>
             <div className="w-16 h-px bg-accent mb-8" />
             <p className="font-body text-primary-foreground/80 text-lg leading-relaxed mb-6">
-              Ce domaine n'est pas seulement un lieu de séjour — c'est un projet
-              de restauration écologique ambitieux.
+              {getText(t.conservation.description1)}
             </p>
             <p className="font-body text-primary-foreground/70 leading-relaxed mb-10">
-              Avec des plantations d'arbres, la reconquête des prairies et des
-              habitats sauvages, des programmes pour oiseaux et espèces locales,
-              Wilderness Reserve illustre comment nature et luxe peuvent
-              coexister harmonieusement.
+              {getText(t.conservation.description2)}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-10">
               {stats.map((stat, index) => (
                 <div
-                  key={stat.label}
+                  key={index}
                   className="text-center animate-on-scroll"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -72,10 +63,10 @@ export const ConservationSection = () => {
           {/* Timeline */}
           <div className="bg-primary-foreground/5 backdrop-blur-sm rounded-sm p-8 md:p-10 border border-primary-foreground/10">
             <h3 className="font-display text-2xl text-primary-foreground font-medium mb-8">
-              Notre Parcours
+              {getText(t.conservation.timelineTitle)}
             </h3>
             <div className="space-y-6">
-              {timeline.map((item, index) => (
+              {t.conservation.timeline.map((item, index) => (
                 <div
                   key={item.year}
                   className="flex items-center gap-6 group animate-on-scroll"
@@ -88,12 +79,12 @@ export const ConservationSection = () => {
                   </div>
                   <div className="relative">
                     <div className="w-3 h-3 rounded-full bg-accent group-hover:scale-125 transition-transform duration-300" />
-                    {index < timeline.length - 1 && (
+                    {index < t.conservation.timeline.length - 1 && (
                       <div className="absolute top-3 left-1/2 -translate-x-1/2 w-px h-12 bg-primary-foreground/20" />
                     )}
                   </div>
                   <p className="font-body text-primary-foreground/80">
-                    {item.event}
+                    {item.event[language]}
                   </p>
                 </div>
               ))}

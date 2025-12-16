@@ -1,61 +1,59 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import sibtonManor from "@/assets/sibton-manor.jpg";
-import walledGarden from "@/assets/walled-garden.jpg";
-import chapelBarn from "@/assets/chapel-barn.jpg";
-import cottageHideaway from "@/assets/cottage-hideaway.jpg";
-
-const accommodations = [
-  {
-    image: sibtonManor,
-    title: "Sibton Park Manor",
-    subtitle: "Grand Manoir Historique",
-    description:
-      "12 chambres somptueuses, cinéma privé, spa et jardins à l'anglaise. L'élégance d'une autre époque.",
-    features: ["12 Chambres", "Cinéma", "Spa", "Jardins"],
-  },
-  {
-    image: walledGarden,
-    title: "Walled Garden Retreat",
-    subtitle: "Élégance Contemporaine",
-    description:
-      "Architecture moderne au cœur d'un jardin clos. Sauna finlandais et hot tub sous les étoiles.",
-    features: ["Design Moderne", "Sauna", "Hot Tub", "Jardin Privé"],
-  },
-  {
-    image: chapelBarn,
-    title: "Chapel Barn",
-    subtitle: "Grange Rénovée",
-    description:
-      "Charme rustique et confort absolu. Piscine intérieure chauffée, salle de sport et espaces de divertissement.",
-    features: ["Piscine Intérieure", "Gym", "Billard", "Poutres Apparentes"],
-  },
-  {
-    image: cottageHideaway,
-    title: "Cottages & Hideaways",
-    subtitle: "Retraites Intimes",
-    description:
-      "Moat Cottage, Hex Cottage, Cartshed... Des refuges pittoresques nichés dans la campagne.",
-    features: ["Intime", "Charme Rustique", "Cheminée", "Nature"],
-  },
-];
+import { useTranslation } from "@/contexts/LanguageContext";
+import sibtonManor from "@/assets/abandoned-mansion-thailand.jpg";
+import walledGarden from "@/assets/traditional-house-interior-design-min.jpg";
+import chapelBarn from "@/assets/modern-country-houses-construction-min.jpg";
+import cottageHideaway from "@/assets/view-green-palm-tree-species-with-beautiful-foliage.jpg";
 
 export const AccommodationsSection = () => {
+  const { t, getText, language } = useTranslation();
+
+  const accommodations = [
+    {
+      image: sibtonManor,
+      title: getText(t.accommodations.items.grandChalet.title),
+      subtitle: getText(t.accommodations.items.grandChalet.subtitle),
+      description: getText(t.accommodations.items.grandChalet.description),
+      features: t.accommodations.items.grandChalet.features[language],
+    },
+    {
+      image: walledGarden,
+      title: getText(t.accommodations.items.suiteRiviere.title),
+      subtitle: getText(t.accommodations.items.suiteRiviere.subtitle),
+      description: getText(t.accommodations.items.suiteRiviere.description),
+      features: t.accommodations.items.suiteRiviere.features[language],
+    },
+    {
+      image: chapelBarn,
+      title: getText(t.accommodations.items.refugeAlpin.title),
+      subtitle: getText(t.accommodations.items.refugeAlpin.subtitle),
+      description: getText(t.accommodations.items.refugeAlpin.description),
+      features: t.accommodations.items.refugeAlpin.features[language],
+    },
+    {
+      image: cottageHideaway,
+      title: getText(t.accommodations.items.cottages.title),
+      subtitle: getText(t.accommodations.items.cottages.subtitle),
+      description: getText(t.accommodations.items.cottages.description),
+      features: t.accommodations.items.cottages.features[language],
+    },
+  ];
+
   return (
     <section id="accommodations" className="py-24 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
           <p className="text-accent font-body text-sm tracking-luxury uppercase mb-4">
-            Hébergements
+            {getText(t.accommodations.tagline)}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground font-medium mb-6 leading-tight">
-            Nos Propriétés Iconiques
+            {getText(t.accommodations.title)}
           </h2>
           <div className="w-16 h-px bg-accent mx-auto mb-8" />
           <p className="font-body text-muted-foreground text-lg">
-            Des manoirs historiques aux cottages pittoresques, chaque propriété
-            raconte une histoire unique.
+            {getText(t.accommodations.subtitle)}
           </p>
         </div>
 
@@ -63,7 +61,7 @@ export const AccommodationsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {accommodations.map((item, index) => (
             <article
-              key={item.title}
+              key={index}
               className="group bg-card rounded-sm overflow-hidden shadow-card card-hover animate-on-scroll"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
@@ -106,7 +104,7 @@ export const AccommodationsSection = () => {
                   variant="ghost"
                   className="group/btn p-0 h-auto text-primary hover:text-accent font-body text-sm tracking-refined uppercase"
                 >
-                  Découvrir
+                  {getText(t.accommodations.discover)}
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </Button>
               </div>
@@ -121,7 +119,7 @@ export const AccommodationsSection = () => {
             variant="outline"
             className="tracking-luxury uppercase px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
           >
-            Voir toutes les propriétés
+            {getText(t.accommodations.viewAll)}
           </Button>
         </div>
       </div>

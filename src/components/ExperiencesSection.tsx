@@ -1,36 +1,39 @@
-import { Compass, Waves, Sparkles, Bird, PartyPopper } from "lucide-react";
-import experiencePaddle from "@/assets/experience-paddle.jpg";
-import experienceSpa from "@/assets/experience-spa.jpg";
-
-const experiences = [
-  {
-    icon: Compass,
-    title: "Randonnée & Vélo",
-    description: "Explorez les sentiers autour des lacs et à travers les prairies",
-  },
-  {
-    icon: Waves,
-    title: "Paddle & Navigation",
-    description: "Glissez sur les étangs au lever du soleil",
-  },
-  {
-    icon: Sparkles,
-    title: "Bien-être & Spa",
-    description: "Massages, saunas et moments de sérénité absolue",
-  },
-  {
-    icon: Bird,
-    title: "Observation Nature",
-    description: "Découvrez la faune locale avec nos guides experts",
-  },
-  {
-    icon: PartyPopper,
-    title: "Événements Privés",
-    description: "Mariages, anniversaires et célébrations sur mesure",
-  },
-];
+import { Compass, Waves, Sparkles, Bird, Utensils } from "lucide-react";
+import { useTranslation } from "@/contexts/LanguageContext";
+import experiencePaddle from "@/assets/portrait-overweight-couple-traveling-world-together-min.jpg";
+import experienceSpa from "@/assets/interior-sauna-min.jpg";
 
 export const ExperiencesSection = () => {
+  const { t, getText } = useTranslation();
+
+  const experiences = [
+    {
+      icon: Compass,
+      title: getText(t.experiences.items.hiking.title),
+      description: getText(t.experiences.items.hiking.description),
+    },
+    {
+      icon: Waves,
+      title: getText(t.experiences.items.fishing.title),
+      description: getText(t.experiences.items.fishing.description),
+    },
+    {
+      icon: Sparkles,
+      title: getText(t.experiences.items.wellness.title),
+      description: getText(t.experiences.items.wellness.description),
+    },
+    {
+      icon: Bird,
+      title: getText(t.experiences.items.wildlife.title),
+      description: getText(t.experiences.items.wildlife.description),
+    },
+    {
+      icon: Utensils,
+      title: getText(t.experiences.items.gastronomy.title),
+      description: getText(t.experiences.items.gastronomy.description),
+    },
+  ];
+
   return (
     <section id="experiences" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6">
@@ -38,23 +41,21 @@ export const ExperiencesSection = () => {
           {/* Content Side */}
           <div className="order-2 lg:order-1">
             <p className="text-accent font-body text-sm tracking-luxury uppercase mb-4">
-              Expériences
+              {getText(t.experiences.tagline)}
             </p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-foreground font-medium mb-6 leading-tight">
-              Des moments inoubliables
+              {getText(t.experiences.title)}
             </h2>
             <div className="w-16 h-px bg-accent mb-8" />
             <p className="font-body text-muted-foreground text-lg leading-relaxed mb-10">
-              Nos expériences sont conçues pour enrichir chaque séjour, de la
-              tranquillité absolue au plaisir partagé. Chaque activité est une
-              invitation à la découverte.
+              {getText(t.experiences.description)}
             </p>
 
             {/* Experiences List */}
             <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <div
-                  key={exp.title}
+                  key={index}
                   className="flex items-start gap-4 group animate-on-scroll"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -81,16 +82,16 @@ export const ExperiencesSection = () => {
               <div className="relative z-10 rounded-sm overflow-hidden shadow-elevated img-reveal">
                 <img
                   src={experiencePaddle}
-                  alt="Paddleboarding on the lake"
+                  alt="Activities in nature"
                   className="w-full h-[400px] md:h-[500px] object-cover"
                 />
               </div>
-              
+
               {/* Secondary Image */}
               <div className="absolute -bottom-8 -left-8 w-48 h-48 md:w-64 md:h-64 rounded-sm overflow-hidden shadow-card z-20 border-4 border-background img-reveal hidden md:block">
                 <img
                   src={experienceSpa}
-                  alt="Spa and wellness"
+                  alt="Wellness and relaxation"
                   className="w-full h-full object-cover"
                 />
               </div>
