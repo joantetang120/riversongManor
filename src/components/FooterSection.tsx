@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Instagram, Facebook, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoRiversong from "@/assets/logo-riversong.png";
 
 const quickLinks = [
   { label: "FAQ", href: "#" },
@@ -23,13 +24,12 @@ export const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand & Description */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="font-display text-3xl font-semibold tracking-refined">
-                W
-              </span>
-              <span className="font-display text-xl font-medium tracking-luxury uppercase">
-                ilderness Reserve
-              </span>
+            <div className="mb-6">
+              <img 
+                src={logoRiversong} 
+                alt="Riversong Manor" 
+                className="h-16 w-auto brightness-0 invert"
+              />
             </div>
             <p className="font-body text-primary-foreground/70 leading-relaxed mb-6 max-w-md">
               A private 8,000-acre estate in Suffolk, England. Experience the
@@ -55,12 +55,12 @@ export const FooterSection = () => {
                 <span className="font-body text-sm">+44 (0) 1234 567 890</span>
               </a>
               <a
-                href="mailto:reservations@wildernessreserve.com"
+                href="mailto:reservations@riversongmanor.com"
                 className="flex items-center gap-3 text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-300 group"
               >
                 <Mail className="w-4 h-4 group-hover:text-accent transition-colors duration-300" />
                 <span className="font-body text-sm">
-                  reservations@wildernessreserve.com
+                  reservations@riversongmanor.com
                 </span>
               </a>
               <div className="flex items-start gap-3 text-primary-foreground/70">
@@ -101,7 +101,7 @@ export const FooterSection = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-body text-xs text-primary-foreground/50">
-              © {new Date().getFullYear()} Wilderness Reserve. All rights
+              © {new Date().getFullYear()} Riversong Manor. All rights
               reserved.
             </p>
 

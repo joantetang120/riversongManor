@@ -53,7 +53,7 @@ export const HeroSection = () => {
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary-foreground font-medium leading-tight mb-6 text-shadow-hero animate-fade-in"
             style={{ animationDelay: "0.4s" }}
           >
-            Wilderness Reserve
+            Riversong Manor
           </h1>
 
           {/* Subtitle */}
