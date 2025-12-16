@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { BookingDialog } from "@/components/BookingDialog";
 import heroImage from "@/assets/hero-estate.jpg";
-
 export const HeroSection = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
 
@@ -84,13 +84,7 @@ export const HeroSection = () => {
             >
               Discover the Estate
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/50 text-primary-foreground bg-transparent hover:bg-primary-foreground/10 tracking-luxury uppercase px-8 py-6 text-sm font-medium transition-all duration-300"
-            >
-              Book Your Stay
-            </Button>
+            <BookingDialog />
           </div>
         </div>
 
